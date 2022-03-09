@@ -1,0 +1,37 @@
+// Function to calculate the scal productof of two vectors
+FUNCTION Dot_Product(n:INTEGER, Var Tab:ARRAY_OF_INTEGER, var Tab1:ARRAY_OF_INTEGER) : real
+VAR
+i: INTEGER;
+ps: real;
+BEGIN
+Ps:=0.0;
+FOR i FROM 0 To n-1 DO
+    ps := ps + tab[i]*tab1[i];
+END_FOR
+RETURN PS;
+END
+// Algorithm to verify if deux vectors are orthogonal or not
+ALGORITHM Test_Ortho
+VAR
+    n: INTEGER;
+    i: INTEGER;
+    Tab:ARRAY_OF_INTEGER[n];
+    Tab1:ARRAY_OF_INTEGER[n];
+    Test : BOOLEAN;
+BEGIN
+Read(n);
+FOR i FROM 0 TO n-1 DO
+    Read (Tab[i]);
+    Read (Tab1[i]);
+END_FOR
+IF (Dot_Product(n,Tab,Tab1)=0.0) THEN
+    Test := TRUE;
+    Write(" The deux vectors are orthogonal");
+ELSE 
+    Test := FALSE;
+    Write(" The deux vectors are not orthogonal");
+END_IF
+
+
+
+
